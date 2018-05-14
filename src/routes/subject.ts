@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { getSubject, getTeachers, addSubjects, getSubjectbyId } from '../service/subjectService';
+import { getSubject, getTeachers, addSubjects, getSubjectbyId } from '../service/subjectservice';
 import { TeacherI, SubjectI } from '../model/entityI';
 
 const route: express.Router = express.Router();

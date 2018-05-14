@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { addStudent, getStudents, getStudentbyId, getStudentBatches, addStudentToBatch, deleteUserById, updateStudent } from '../service/studentService';
+import { addStudent, getStudents, getStudentbyId, getStudentBatches, addStudentToBatch, deleteUserById, updateStudent } from '../service/studentservice';
 import { TeacherI, SubjectI, StudentI, BatchI } from '../model/entityI';
 import { getBatchById } from '../service/courseService'
 
@@ -68,10 +68,10 @@ route.delete('/:id', (req: Request, res: Response) => {
                 success: true,
                 id: result
             });
-        }).catch(err => {
+        }).catch(() => {
             res.status(400);
         })
-    } catch (err) {
+    } catch (error) {
         res.status(400);
     }
 
@@ -82,12 +82,12 @@ route.put('/:id', (req: Request, res: Response) => {
     let id = req.params.id;
     let name = req.body.name;
 
-    updateStudent(id, name).then((result) => {
+    updateStudent(id, name).then((result) =>{
         console.log(result)
         if (result == 0)
             throw Error("Update failed No Student found for id" + id);
         res.status(200).json(result);
-    }).catch(err => {
+    }).catch(()=>{
         res.status(400);
     })
 
