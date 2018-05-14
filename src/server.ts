@@ -33,8 +33,8 @@ app.use('/teacher', routes.teacher);
 app.use('/subject', routes.subject);
 
 
-app.listen(5555, () => {
-    db.sync();
+app.listen(process.env.PORT/*5555*/, () => {
+    //db.sync();
     console.log("started");
 })
 
