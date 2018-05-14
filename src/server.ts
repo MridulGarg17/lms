@@ -1,7 +1,7 @@
 /////
 /* Submission by Mridul Garg (mridul.garg@nagarro.com)*/
 /////
-import express from 'express'
+import express, { Request, Response } from 'express'
 import path from 'path'
 import { db } from "./model/enitity"
 import courseRoute from "./routes/course"
