@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { addTeacher, getbatches, getTeacher, getTeacherbyId, deleteUserById, updateTeacher } from '../service/teacherservice';
+import { addTeacher, getbatches, getTeacher, getTeacherbyId, deleteUserById, updateTeacher } from '../service/teacherService';
 import { TeacherI, SubjectI } from '../model/entityI';
 
 const route: express.Router = express.Router();
@@ -48,8 +48,6 @@ route.delete('/:id', (req: Request, res: Response) => {
                 success: true,
                 id: result
             });
-        }).catch(err => {
-            res.status(400);
         })
     } catch (err) {
         res.status(400);
@@ -62,7 +60,7 @@ route.put('/:id', (req: Request, res: Response) => {
     let id = req.params.id;
     let name = req.body.name;
 
-    updateTeacher(id, name).then((result) => {
+    updateTeacher(id, name).then((result:any) => {
         console.log(result)
         if (result == 0)
             throw Error("Update failed No teacher found for id" + id);
