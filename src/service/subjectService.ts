@@ -9,9 +9,11 @@ export async function getSubject(): Promise<SubjectI[] | null> {
     return new Promise<SubjectI[] | null>((resolve, reject) => {
         Subject.findAll({
 
-            include:[{
-                model: Course
-            }]
+            attributes: ['id', 'name'],
+            include: [{
+                model: Course,
+                attributes: ['id', 'name']
+            }],
 
         }).then(result => {
             resolve(result);

@@ -10,7 +10,7 @@ declare global {
 }
 
 const db = new Sequelize('lms', '', '', {
-    host: 'localhost',
+   // host: 'localhost',
     dialect: 'sqlite',
     storage : './data.db'
 })
