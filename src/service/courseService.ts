@@ -99,5 +99,15 @@ export async function deleteCourseById(id: number): Promise<number | null> {
     })
 }
 
+export async function getfullBatches(): Promise<BatchI[]|null> {
+    return new Promise<BatchI[] | null>((resolve, reject) => {
+        Batch.findAll().then(result => {
+            resolve(result);
+        })
+    })
+
+    //await Course.findAll();
+}
+
 
 

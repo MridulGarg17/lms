@@ -5,19 +5,19 @@ import { TeacherI, SubjectI } from '../model/entityI';
 const route: express.Router = express.Router();
 
 route.get('/', (req: Request, res: Response) => {
-    getTeacher().then((Subject: SubjectI[] | null) => {
-        res.status(200).send(Subject);
+    getTeacher().then((teacher: TeacherI[] | null) => {
+        res.status(200).send(teacher);
     })
 
 })
 
 route.post('/', (req: Request, res: Response) => {
-    let newSubject: SubjectI = {
+    let newTeacher: TeacherI = {
         id: 0,
         name: req.body.name
     }
-    addTeacher(newSubject, req.body.cid).then((subjects: SubjectI | null) => {
-        res.status(200).send(subjects);
+    addTeacher(newTeacher, req.body.sid).then((teachers: TeacherI | null) => {
+        res.status(200).send(teachers);
     })
 });
 
@@ -32,8 +32,8 @@ route.get('/:id/batches', (req, res) => {
 
 route.get('/:id', (req, res) => {
 
-    getTeacherbyId(req.params.id).then((subject: SubjectI | null) => {
-        res.status(200).send(subject);
+    getTeacherbyId(req.params.id).then((teacher: TeacherI | null) => {
+        res.status(200).send(teacher);
     })
 });
 
