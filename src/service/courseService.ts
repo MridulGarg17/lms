@@ -5,7 +5,7 @@ import {Course,Batch} from '../model/enitity';
 
 export async function getCourses(): Promise<CourseI[]|null> {
     return new Promise<CourseI[] | null>((resolve, reject) => {
-            Course.findAll().then(result => {
+        Course.findAll().then(result => {
             resolve(result);
         })
     })

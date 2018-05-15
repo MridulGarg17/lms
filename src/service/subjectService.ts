@@ -7,7 +7,13 @@ import { getCoursesbyId } from './courseService';
 
 export async function getSubject(): Promise<SubjectI[] | null> {
     return new Promise<SubjectI[] | null>((resolve, reject) => {
-        Subject.findAll().then(result => {
+        Subject.findAll({
+
+            include:[{
+                model: Course
+            }]
+
+        }).then(result => {
             resolve(result);
         })
     })

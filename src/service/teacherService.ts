@@ -8,7 +8,12 @@ import { getSubjectbyId } from './subjectService';
 
 export async function getTeacher(): Promise<TeacherI[] | null> {
     return new Promise<TeacherI[] | null>((resolve, reject) => {
-        Teacher.findAll().then(result => {
+        Teacher.findAll({
+            include: [
+                { model: Subject }
+            ]
+
+        }).then(result => {
             resolve(result);
         })
     })
