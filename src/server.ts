@@ -9,10 +9,14 @@ import subjectRoute from './routes/subject'
 import studentRoute from './routes/student'
 import teacherRoute from './routes/teacher'
 
+const cors = require('cors')
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+
+app.use(cors());
+
 
 app.use('/',express.static(path.join(__dirname,'../public')));
 
@@ -33,7 +37,7 @@ app.use('/teacher', routes.teacher);
 app.use('/subject', routes.subject);
 
 
-app.listen(process.env.PORT /*|| 9999*/, () => {
+app.listen(process.env.PORT ||9999, () => {
     //db.sync();
     console.log("server started");
 })

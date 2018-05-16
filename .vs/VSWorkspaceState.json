@@ -6,6 +6,6 @@
     "\\src\\routes",
     "\\src\\service"
   ],
-  "SelectedNode": "\\src\\server.ts",
+  "SelectedNode": "\\src\\routes\\course.ts",
   "PreviewInSolutionExplorer": false
 }
