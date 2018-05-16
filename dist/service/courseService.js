@@ -110,3 +110,14 @@ function deleteCourseById(id) {
     });
 }
 exports.deleteCourseById = deleteCourseById;
+function getfullBatches() {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve, reject) => {
+            enitity_1.Batch.findAll().then(result => {
+                resolve(result);
+            });
+        });
+        //await Course.findAll();
+    });
+}
+exports.getfullBatches = getfullBatches;

@@ -11,6 +11,11 @@ route.get('/', (req, res) => {
         res.status(200).send(courses);
     });
 });
+route.get('/batches', (req, res) => {
+    courseService_1.getfullBatches().then((batch) => {
+        res.status(200).send(batch);
+    });
+});
 route.get('/:id', (req, res) => {
     courseService_1.getCoursesbyId(req.params.id).then((courses) => {
         res.status(200).send(courses);

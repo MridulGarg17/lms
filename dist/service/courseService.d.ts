@@ -6,3 +6,4 @@ export declare function getBatches(id: number): Promise<BatchI[] | null>;
 export declare function getBatchById(id: number, bid: number): Promise<BatchI | null>;
 export declare function addBatch(batchId: number, newBatch: BatchI): Promise<BatchI | null>;
 export declare function deleteCourseById(id: number): Promise<number | null>;
+export declare function getfullBatches(): Promise<BatchI[] | null>;

@@ -61,3 +61,17 @@ export async function getTeachers(id: number): Promise<TeacherI[] | null> {
     })
 
 }
+
+
+
+export async function deleteSubjectById(id: number): Promise<number | null> {
+    return new Promise<number | null>((resolve, reject) => {
+        Subject.destroy({
+            where: {
+                id: id
+            }
+        }).then(result => {
+            resolve(result);
+        })
+    })
+}

@@ -13,7 +13,13 @@ const courseService_1 = require("./courseService");
 function getSubject() {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
-            enitity_1.Subject.findAll().then(result => {
+            enitity_1.Subject.findAll({
+                attributes: ['id', 'name'],
+                include: [{
+                        model: enitity_1.Course,
+                        attributes: ['id', 'name']
+                    }],
+            }).then(result => {
                 resolve(result);
             });
         });
@@ -63,3 +69,17 @@ function getTeachers(id) {
     });
 }
 exports.getTeachers = getTeachers;
+function deleteSubjectById(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve, reject) => {
+            enitity_1.Subject.destroy({
+                where: {
+                    id: id
+                }
+            }).then(result => {
+                resolve(result);
+            });
+        });
+    });
+}
+exports.deleteSubjectById = deleteSubjectById;

@@ -23,7 +23,12 @@ exports.addStudent = addStudent;
 function getStudents() {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
-            enitity_1.Student.findAll().then(result => {
+            enitity_1.Student.findAll({
+                include: [{
+                        model: enitity_1.Batch,
+                        attributes: ['id', 'name']
+                    }]
+            }).then(result => {
                 resolve(result);
             });
         });

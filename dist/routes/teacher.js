@@ -7,17 +7,17 @@ const express_1 = __importDefault(require("express"));
 const teacherService_1 = require("../service/teacherService");
 const route = express_1.default.Router();
 route.get('/', (req, res) => {
-    teacherService_1.getTeacher().then((Subject) => {
-        res.status(200).send(Subject);
+    teacherService_1.getTeacher().then((teacher) => {
+        res.status(200).send(teacher);
     });
 });
 route.post('/', (req, res) => {
-    let newSubject = {
+    let newTeacher = {
         id: 0,
         name: req.body.name
     };
-    teacherService_1.addTeacher(newSubject, req.body.cid).then((subjects) => {
-        res.status(200).send(subjects);
+    teacherService_1.addTeacher(newTeacher, req.body.sid).then((teachers) => {
+        res.status(200).send(teachers);
     });
 });
 route.get('/:id/batches', (req, res) => {
@@ -26,8 +26,8 @@ route.get('/:id/batches', (req, res) => {
     });
 });
 route.get('/:id', (req, res) => {
-    teacherService_1.getTeacherbyId(req.params.id).then((subject) => {
-        res.status(200).send(subject);
+    teacherService_1.getTeacherbyId(req.params.id).then((teacher) => {
+        res.status(200).send(teacher);
     });
 });
 route.delete('/:id', (req, res) => {
@@ -40,8 +40,6 @@ route.delete('/:id', (req, res) => {
                 success: true,
                 id: result
             });
-        }).catch(err => {
-            res.status(400);
         });
     }
     catch (err) {

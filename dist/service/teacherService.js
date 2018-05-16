@@ -13,7 +13,13 @@ const subjectService_1 = require("./subjectService");
 function getTeacher() {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
-            enitity_1.Teacher.findAll().then(result => {
+            enitity_1.Teacher.findAll({
+                attributes: ['id', 'name'],
+                include: [{
+                        model: enitity_1.Subject,
+                        attributes: ['id', 'name']
+                    }],
+            }).then(result => {
                 resolve(result);
             });
         });
