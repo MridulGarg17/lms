@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { addTeacher, getbatches, getTeacher, getTeacherbyId, deleteUserById, updateTeacher } from '../service/teacherService';
+import { addTeacher, getbatches, getTeacher, getTeacherbyId, deleteUserById, updateTeacher,deleteSubjectById } from '../service/teacherService';
 import { TeacherI, SubjectI } from '../model/entityI';
 
 const route: express.Router = express.Router();
@@ -70,5 +70,25 @@ route.put('/:id', (req: Request, res: Response) => {
     })
 
 })
+
+
+route.delete('/:id', (req: Request, res: Response) => {
+    let id = req.params.id;
+    try {
+        deleteSubjectById(id).then((result: number | null) => {
+            if (result === 0) throw Error('No Teacher found for id ' + id);
+            res.status(200).json({
+                success: true,
+                id: result
+            });
+        }).catch(err => {
+            res.status(400);
+        })
+    } catch (err) {
+        res.status(400);
+    }
+
+})
+
 
 export default route;

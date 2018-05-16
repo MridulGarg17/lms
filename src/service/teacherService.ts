@@ -87,3 +87,16 @@ export async function updateTeacher(id: number, name: string): Promise<any | nul
             })
     })
 }
+
+
+export async function deleteTeacherById(id: number): Promise<number | null> {
+    return new Promise<number | null>((resolve, reject) => {
+        Teacher.destroy({
+            where: {
+                id: id
+            }
+        }).then(result => {
+            resolve(result);
+        })
+    })
+}
