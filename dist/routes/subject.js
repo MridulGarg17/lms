@@ -36,8 +36,6 @@ route.delete('/:id', (req, res) => {
                 success: true,
                 id: result
             });
-        }).catch(err => {
-            res.status(400);
         });
     }
     catch (err) {

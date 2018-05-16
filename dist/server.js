@@ -8,7 +8,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /////
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
-const enitity_1 = require("./model/enitity");
 const course_1 = __importDefault(require("./routes/course"));
 const subject_1 = __importDefault(require("./routes/subject"));
 const student_1 = __importDefault(require("./routes/student"));
@@ -31,6 +30,6 @@ app.use('/student', routes.student);
 app.use('/teacher', routes.teacher);
 app.use('/subject', routes.subject);
 app.listen(process.env.PORT /*|| 9999*/, () => {
-    enitity_1.db.sync();
+    //db.sync();
     console.log("server started");
 });

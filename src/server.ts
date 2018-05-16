@@ -34,7 +34,7 @@ app.use('/subject', routes.subject);
 
 
 app.listen(process.env.PORT /*|| 9999*/, () => {
-    db.sync();
+    //db.sync();
     console.log("server started");
 })
 

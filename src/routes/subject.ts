@@ -39,7 +39,9 @@ route.delete('/:id', (req: Request, res: Response) => {
                 id: result
             });
         })
-    } 
+    } catch (err) {
+        res.status(400);
+    }
 
 })
 
